@@ -29,15 +29,15 @@ Then(/^appium links should be displayed$/, () => {
 });
 
 Then(/^I should be navigated to appium's official site "(.*?)"$/, (expectedUrl) => {
-    browser.waitUntil(async () => {
-        const url = await browser.getUrl();
+    browser.waitUntil(() => {
+        const url = browser.getUrl();
         return url === expectedUrl;
     }, 5000, `expected url to be ${expectedUrl}`);
 });
 
 Then(/^I verify the title of the page to be "(.*?)"$/, (expectedTitle) => {
-    browser.waitUntil(async () => {
-        const title = await browser.getTitle();
+    browser.waitUntil( () => {
+        const title = browser.getTitle();
         return title === expectedTitle;
     }, 5000, `expected url to be ${expectedTitle}`);
 });
@@ -55,8 +55,8 @@ Then(/^I click on android tutorial link$/, () => {
 });
 
 Then(/^I verify the title of android tutorial page to be "(.*?)"$/, (expectedTitle) => {
-    browser.waitUntil(async () => {
-        const title = await browser.getTitle();
+    browser.waitUntil(() => {
+        const title = browser.getTitle();
         return title === expectedTitle;
     }, 5000, `expected url to be ${expectedTitle}`);
 });

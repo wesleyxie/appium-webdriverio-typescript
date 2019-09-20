@@ -10,8 +10,8 @@
       "removeComments": false,
       "noImplicitAny": false,
       "outDir": "output",
-      "typeRoots": [ "./node_modules/@types" ],
-      "types": ["node","cucumber","webdriverio","chai"]
+      "typeRoots": [ "./node_modules/@types", "./node_modules/@wdio" ],
+      "types": ["node", "cucumber", "chai", "sync"]
   },
   "exclude": [
       "node_modules",
