@@ -1,9 +1,10 @@
 allure-results/
 allure-report/
 node_modules/
-typeScript/
+output/
 reports/
 .vscode
 *.log
 .DS_Store
 package-lock.json
+.idea
