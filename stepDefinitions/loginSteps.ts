@@ -1,7 +1,6 @@
 
 const {Given, When, Then} = require('cucumber');
 import {expect} from 'chai';
-import { CalculatorPageObject } from '../pages/calcPage';
 
 import {HomePageObject} from '../pages/homePage';
 import {LoginPageObject} from '../pages/loginPage';
