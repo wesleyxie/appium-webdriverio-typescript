@@ -44,9 +44,9 @@
     "ts-node": "^8.4.1",
     "tslint": "^5.20.0",
     "typescript": "^3.6.3",
-    "wdio-allure-reporter": "^0.8.3",
+    "@wdio/allure-reporter": "^5.12.1",
+    "@wdio/spec-reporter": "^5.12.1",
     "wdio-cucumber-framework": "^2.2.8",
-    "wdio-spec-reporter": "^0.1.5",
     "webdriverio": "^4.12.0"
   }
 }

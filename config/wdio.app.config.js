@@ -1,6 +1,6 @@
 /**
  * WebdriverIO config file to run tests on native mobile apps.
- * Config file helps us configure all the settings and setup environments 
+ * Config file helps us configure all the settings and setup environments
  * to run our tests.
  */
 
@@ -11,33 +11,31 @@ const waitforTimeout = 30 * 60000;
 const commandTimeout = 30 * 60000;
 
 exports.config = {
-    debug: false,
-    specs: [
-        './features/calculator.feature',
-    ],
-
-    reporters: ['allure','spec'],
-    reporterOptions: {
-        allure: {
-            outputDir: './allure-results/'
-        }
-    },
-
     host: host,
     port: port,
 
     maxInstances: 1,
+    runner: 'local',
+    debug: false,
+
+    specs: [
+        './features/login.feature',
+        './features/onboarding.feature',
+    ],
+
+    reporters: ['spec', ['allure', {
+        outputDir: './allure-results/',
+        disableWebdriverStepsReporting: false,
+    }]],
+
 
     capabilities: [
         {
-            appiumVersion: '1.8.1',                 // Appium module version
-            browserName: '',                        // browser name is empty for native apps
+            automationName: "UiAutomator2",
             platformName: 'Android',
-            app: './app/LGCalculator.apk',          // Path to your native app
-            appPackage: 'com.android.calculator2',  // Package name of your app
-            appActivity: 'com.android.calculator2.Calculator', // App activity of the app
-            platformVersion: '7.1.1',              // Android platform version of the device
-            deviceName: 'THF755e0384',              // device name of the mobile device
+            app: '/Users/wxie/Development/welab/welab-rn-front-end/android/app/build/outputs/apk/dev/debug/app-dev-debug.apk',          // Path to your native app
+            platformVersion: '9',              // Android platform version of the device
+            deviceName: 'Nexus_5X_API_28',              // device name of the mobile device
             waitforTimeout: waitforTimeout,
             commandTimeout: commandTimeout,
             newCommandTimeout: 30 * 60000,
@@ -49,11 +47,13 @@ exports.config = {
         waitStartTime: 6000,
         waitforTimeout: waitforTimeout,
         command: 'appium',
-        logFileName: 'appium.log',
+        logPath: './logs',
         args: {
+            preLaunch: true,
+            logTimestamp: true,
+            logLevel: 'debug',
             address: host,
             port: port,
-            commandTimeout: commandTimeout,
             sessionOverride: true,
             debugLogSpacing: true
         }
@@ -62,19 +62,21 @@ exports.config = {
     /**
      * test configurations
      */
-    logLevel: 'silent',
+    logLevel: 'debug',
     coloredLogs: true,
-    framework: 'cucumber',          // cucumber framework specified 
+    framework: 'cucumber',          // cucumber framework specified
     cucumberOpts: {
         compiler: ['ts:ts-node/register'],
         backtrace: true,
         failFast: false,
         timeout: 5 * 60 * 60000,
-        require: ['./stepDefinitions/calcSteps.ts']      // importing/requiring step definition files
+        require: [
+            './stepDefinitions/loginSteps.ts',
+        ] // importing/requiring step definition files
     },
 
     /**
-     * hooks help us execute the repeatitive and common utilities 
+     * hooks help us execute the repeatitive and common utilities
      * of the project.
      */
     onPrepare: function () {
