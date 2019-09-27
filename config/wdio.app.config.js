@@ -20,7 +20,6 @@ exports.config = {
 
     specs: [
         './features/login.feature',
-        './features/onboarding.feature',
     ],
 
     reporters: ['spec', ['allure', {
@@ -39,6 +38,7 @@ exports.config = {
             waitforTimeout: waitforTimeout,
             commandTimeout: commandTimeout,
             newCommandTimeout: 30 * 60000,
+
         }
     ],
 
