@@ -1,7 +1,7 @@
 {
-  "name": "appium-webdriverio-tests",
+  "name": "welab-fn-e2e",
   "version": "1.0.0",
-  "description": "Test framework for automating mobile apps with appium using webdriverio & typescript!",
+  "description": "Automate the mobile and browser end to end test with Typescript and Appium!",
   "scripts": {
     "build": "tsc",
     "clean": "rimraf output/",
