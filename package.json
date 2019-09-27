@@ -2,16 +2,14 @@
   "name": "appium-webdriverio-tests",
   "version": "1.0.0",
   "description": "Test framework for automating mobile apps with appium using webdriverio & typescript!",
-  "main": "index.js",
   "scripts": {
     "build": "tsc",
     "clean": "rimraf output/",
     "clean-build": "npm run clean && npm run build",
     "appium": "appium",
     "app-test": "wdio ./config/wdio.app.config.js",
-    "browser-test": "wdio ./config/wdio.browser.config.js",
     "pretest": "npm run clean-build",
-    "test": "npm run app-test && npm run browser-test",
+    "test": "npm run app-test",
     "report": "allure generate ./allure-results"
   },
   "keywords": [
@@ -23,11 +21,8 @@
     "bdd",
     "selenium",
     "webdriverJS",
-    "gherkin",
     "automation testing"
   ],
-  "author": "Ram Pasala <ram.pasala7@gmail.com>",
-  "license": "MIT",
   "devDependencies": {
     "@types/chai": "^4.2.3",
     "@types/cucumber": "^4.0.7",
